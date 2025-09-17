@@ -6,4 +6,4 @@ RUN npm ci --omit=dev
 COPY ./src ./src
 COPY ./videos ./videos
 
-CMD npm start
+CMD ["npm", "start"]
