@@ -1,5 +1,7 @@
 const express = require("express");
 const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
+// Load environment variables from .env
+require("dotenv").config();
 
 //
 // Throws an error if the any required environment variables are missing.
