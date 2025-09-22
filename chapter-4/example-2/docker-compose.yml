@@ -1,9 +1,9 @@
-version: '3'
+--—
 services:
 
   azure-storage:
     image: azure-storage
-    build: 
+    build:
       context: ./azure-storage
       dockerfile: Dockerfile
     container_name: video-storage
@@ -17,7 +17,7 @@ services:
 
   video-streaming:
     image: video-streaming
-    build: 
+    build:
       context: ./video-streaming
       dockerfile: Dockerfile
     container_name: video-streaming
