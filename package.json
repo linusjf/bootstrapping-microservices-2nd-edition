@@ -17,10 +17,7 @@
   },
   "homepage": "https://github.com/linusjf/bootstrapping-microservices-2nd-edition#readme",
   "devDependencies": {
-    "eslint": "^8.57.1",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-n": "^16.6.2",
-    "eslint-plugin-promise": "^6.6.0"
+    "eslint": "^9.36.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
