@@ -6,6 +6,8 @@ services:
     build:
       context: ./azure-storage
       dockerfile: Dockerfile
+    env_file:
+      - .env
     container_name: video-storage
     ports:
       - "4000:80"
