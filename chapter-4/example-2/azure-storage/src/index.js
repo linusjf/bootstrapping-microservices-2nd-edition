@@ -28,6 +28,11 @@ if (!process.env.STORAGE_ACCESS_KEY) {
   );
 }
 
+process.on("SIGTERM", () => {
+  console.log("SIGTERM received, shutting down...");
+  process.exit(0);
+});
+
 //
 // Extracts environment variables to globals for convenience.
 //
