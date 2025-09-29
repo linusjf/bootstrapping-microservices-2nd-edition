@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 //
 async function main() {
 
-    console.log("Hello world!");
+    console.log("Hello computer!");
 
     const app = express();
 
@@ -20,6 +20,7 @@ async function main() {
     app.listen(PORT, () => {
         console.log("Microservice online.");
     });
+
 }
 
 main()
