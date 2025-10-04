@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: video-streaming
-          image: video-streaming:1
+          image: video-streaming:2
           imagePullPolicy: Never
           env:
             - name: PORT
