@@ -7,5 +7,8 @@ variable location {
   default = "eastus"
 }
 
-variable kubernetes_version {    
+variable kubernetes_version {
+}
+
+variable container_name {
 }
