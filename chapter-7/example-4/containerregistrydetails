@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+az acr show --name linusjfflixtube --resource-group flixtube --output table
+az acr credential show --name linusjfflixtube --resource-group flixtube --output table
