@@ -9,7 +9,7 @@ Please see README in each sub-directory for instructions on starting the particu
 Before that, run the following command and create a .env file for each example in its specific directory
 
 ```bash
-az ad sp create-for-rbac --name "terraform-sp" --role="Contributor" --scopes="/subscriptions/<your-subscription-id>"
+az ad sp create-for-rbac --name "terraform-sp" --role="Owner" --scopes="/subscriptions/<your-subscription-id>"
 ```
 
 Example output
