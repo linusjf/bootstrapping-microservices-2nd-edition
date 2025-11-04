@@ -1,4 +1,5 @@
-version: '3'
+---
+
 services:
 
   db:
@@ -22,25 +23,25 @@ services:
   # Service for loading database fixtures.
   db-fixture-rest-api:
     image: db-fixture-rest-api
-    build: 
+    build:
       context: ./db-fixture-rest-api
       dockerfile: Dockerfile
     container_name: db-fixture-rest-api
     ports:
-     - "9000:80"
+      - "9000:80"
     environment:
-     - PORT=80
-     - DBHOST=mongodb://db:27017
-     - FIXTURES_DIR=fixtures
+      - PORT=80
+      - DBHOST=mongodb://db:27017
+      - FIXTURES_DIR=fixtures
     volumes:
-     - ./fixtures:/usr/src/app/fixtures:z
+      - ./fixtures:/usr/src/app/fixtures:z
     depends_on:
       - db
     restart: always
 
   gateway:
     image: gateway
-    build: 
+    build:
       context: ./gateway
       dockerfile: Dockerfile-dev
     container_name: gateway
@@ -60,7 +61,7 @@ services:
 
   video-streaming:
     image: video-streaming
-    build: 
+    build:
       context: ./video-streaming
       dockerfile: Dockerfile-dev
     container_name: video-streaming
@@ -80,7 +81,7 @@ services:
 
   video-upload:
     image: video-upload
-    build: 
+    build:
       context: ./video-upload
       dockerfile: Dockerfile-dev
     container_name: video-upload
@@ -89,7 +90,7 @@ services:
       - ./video-upload/src:/usr/src/app/src:z
       - ./video-upload/uploads:/usr/src/app/uploads:z
     ports:
-     - "4004:80"
+      - "4004:80"
     environment:
       - PORT=80
       - RABBIT=amqp://test:test@rabbit:5672
@@ -100,7 +101,7 @@ services:
 
   history:
     image: history
-    build: 
+    build:
       context: ./history
       dockerfile: Dockerfile-dev
     container_name: history
@@ -108,7 +109,7 @@ services:
       - /tmp/history/npm-cache:/root/.npm:z
       - ./history/src:/usr/src/app/src:z
     ports:
-     - "4002:80"
+      - "4002:80"
     environment:
       - PORT=80
       - RABBIT=amqp://test:test@rabbit:5672
@@ -120,12 +121,12 @@ services:
       - rabbit
     restart: "no"
 
-  # 
+  #
   # Uncomment this service to enable cloud storage.
   #
   # video-storage:
   #   image: azure-storage
-  #   build: 
+  #   build:
   #     context: ./azure-storage
   #     dockerfile: Dockerfile-dev
   #   container_name: video-storage
@@ -150,7 +151,7 @@ services:
   #
   video-storage:
     image: mock-storage
-    build: 
+    build:
       context: ./mock-storage
       dockerfile: Dockerfile-dev
     container_name: video-storage
@@ -159,14 +160,14 @@ services:
       - ./mock-storage/src:/usr/src/app/src:z
       - ./mock-storage/storage:/usr/src/app/storage:z
     ports:
-     - "4005:80"
+      - "4005:80"
     environment:
       - PORT=80
     restart: "no"
 
   metadata:
     image: metadata
-    build: 
+    build:
       context: ./metadata
       dockerfile: Dockerfile-dev
     container_name: metadata
@@ -174,7 +175,7 @@ services:
       - /tmp/metadata/npm-cache:/root/.npm:z
       - ./metadata/src:/usr/src/app/src:z
     ports:
-     - "4006:80"
+      - "4006:80"
     environment:
       - PORT=80
       - RABBIT=amqp://test:test@rabbit:5672
