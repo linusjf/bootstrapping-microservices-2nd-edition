@@ -4,6 +4,8 @@
 # kubectl apply -f scripts/deploy.yaml
 #
 #
+---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -18,11 +20,11 @@ spec:
       labels:
         app: video-streaming
     spec:
-      containers: 
-      - name: video-streaming
-        image: video-streaming:1
-        imagePullPolicy: Never
-        env:
+      containers:
+        - name: video-streaming
+          image: video-streaming:1
+          imagePullPolicy: Never
+          env:
         - name: PORT
           value: "4000"
         - name: RABBIT

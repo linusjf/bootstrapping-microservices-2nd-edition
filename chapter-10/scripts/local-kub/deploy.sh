@@ -17,15 +17,15 @@ docker build -t video-streaming:1 --file ../../video-streaming/Dockerfile-prod .
 docker build -t video-upload:1 --file ../../video-upload/Dockerfile-prod ../../video-upload
 docker build -t gateway:1 --file ../../gateway/Dockerfile-prod ../../gateway
 
-# 
+#
 # Deploy containers to Kubernetes.
 #
 # Don't forget to change kubectl to your local Kubernetes instance, like this:
 #
-#   kubectl config use-context docker-desktop
+kubectl config use-context docker-desktop
 #
 kubectl apply -f rabbit.yaml
-kubectl apply -f mongodb.yaml 
+kubectl apply -f mongodb.yaml
 kubectl apply -f metadata.yaml
 kubectl apply -f history.yaml
 kubectl apply -f mock-storage.yaml
