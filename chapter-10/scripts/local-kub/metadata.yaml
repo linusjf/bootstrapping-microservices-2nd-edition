@@ -25,14 +25,14 @@ spec:
           image: metadata:1
           imagePullPolicy: Never
           env:
-        - name: PORT
-          value: "4000"
-        - name: DBHOST
-          value: mongodb://mongodb:27017
-        - name: DBNAME
-          value: metadata
-        - name: RABBIT
-          value: amqp://test:test@rabbit:5672
+            - name: PORT
+              value: "4000"
+            - name: DBHOST
+              value: mongodb://mongodb:27017
+            - name: DBNAME
+              value: metadata
+            - name: RABBIT
+              value: amqp://test:test@rabbit:5672
 ---
 apiVersion: v1
 kind: Service
