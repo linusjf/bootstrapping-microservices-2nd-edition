@@ -5,7 +5,21 @@
 #
 #   ./scripts/local-kub/deploy.sh
 #
-
+if ! command -v docker >/dev/null; then
+  >&2 echo "Docker Desktop is either not running or not integrated with WSL"
+  exit 1
+fi
+if ! command -v kubectl >/dev/null; then
+  >&2 echo "Kubernetes is not available"
+  exit 1
+fi
+if kubectl config get-contexts | grep 'docker-desktop'; then
+  # Don't forget to change kubectl to your local Kubernetes instance, like this:
+  kubectl config use-context docker-desktop
+else
+  echo "Kubernetes is not enabled in Docker Desktop" >&2
+  exit 1
+fi
 #
 # Build Docker images.
 #
@@ -19,10 +33,6 @@ docker build -t gateway:1 --file ../../gateway/Dockerfile-prod ../../gateway
 
 #
 # Deploy containers to Kubernetes.
-#
-# Don't forget to change kubectl to your local Kubernetes instance, like this:
-#
-kubectl config use-context docker-desktop
 #
 kubectl apply -f rabbit.yaml
 kubectl apply -f mongodb.yaml
