@@ -42,3 +42,16 @@ kubectl apply -f mock-storage.yaml
 kubectl apply -f video-streaming.yaml
 kubectl apply -f video-upload.yaml
 kubectl apply -f gateway.yaml
+
+echo
+echo "KUBERNETES PODS:"
+echo
+kubectl get pods
+echo
+echo "KUBERNETES DEPLOYMENTS:"
+echo
+kubectl get deploy
+echo
+echo "KUBERNETES SERVICES:"
+echo
+kubectl get services
