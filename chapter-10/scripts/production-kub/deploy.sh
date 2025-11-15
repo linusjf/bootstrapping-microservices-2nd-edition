@@ -47,9 +47,7 @@ docker push "${CONTAINER_REGISTRY}/gateway:1"
 
 #
 # Deploy containers to Kubernetes.
-#
-# Don't forget to change kubectl to your production Kubernetes instance
-#
+# update your kube config file
 az aks get-credentials -g flixtube -n flixtube --overwrite-existing
 kubectl apply -f rabbit.yaml
 kubectl apply -f mongodb.yaml
@@ -59,3 +57,16 @@ envsubst <mock-storage.yaml | kubectl apply -f -
 envsubst <video-streaming.yaml | kubectl apply -f -
 envsubst <video-upload.yaml | kubectl apply -f -
 envsubst <gateway.yaml | kubectl apply -f -
+
+echo
+echo "KUBERNETES PODS:"
+echo
+kubectl get pods
+echo
+echo "KUBERNETES DEPLOYMENTS:"
+echo
+kubectl get deploy
+echo
+echo "KUBERNETES SERVICES:"
+echo
+kubectl get services

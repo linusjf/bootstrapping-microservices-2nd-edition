@@ -26,7 +26,6 @@ fi
 docker build -t metadata:1 --file ../../metadata/Dockerfile-prod ../../metadata
 docker build -t history:1 --file ../../history/Dockerfile-prod ../../history
 docker build -t mock-storage:1 --file ../../mock-storage/Dockerfile-prod ../../mock-storage
-docker build -t history:1 --file ../../history/Dockerfile-prod ../../history
 docker build -t video-streaming:1 --file ../../video-streaming/Dockerfile-prod ../../video-streaming
 docker build -t video-upload:1 --file ../../video-upload/Dockerfile-prod ../../video-upload
 docker build -t gateway:1 --file ../../gateway/Dockerfile-prod ../../gateway
