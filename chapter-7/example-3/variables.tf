@@ -1,7 +1,11 @@
 # Sets global variables for this Terraform project.
+variable environment {
+  type = string
+  description = "Environment short name (dev, stage, prod)"
+}
 
-variable app_name {
-  default = "flixtube"
+locals {
+  app_name = "flixtube-${var.environment}"
 }
 
 variable location {
@@ -14,4 +18,19 @@ variable kubernetes_version {
 
 variable container_registry_name {
   default = "linusjfflixtube"
+}
+
+variable client_id {
+}
+
+variable client_secret {
+}
+
+variable app_version {
+}
+
+variable storage_account_name {
+}
+
+variable storage_access_key {
 }
