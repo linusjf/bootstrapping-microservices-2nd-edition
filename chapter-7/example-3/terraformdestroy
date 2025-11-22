@@ -1,8 +1,13 @@
 #!/usr/bin/env bash
 
+# Source .env file if it exists (maintains existing functionality)
+if [ -f .env ]; then
+  source .env
+fi
+
 # Function to display help
 show_help() {
-    cat << EOF
+  cat << EOF
 Usage: $0 [OPTIONS]
 
 Destroy Terraform configuration for the FlixTube application.
@@ -29,7 +34,7 @@ while [[ $# -gt 0 ]]; do
       shift # past argument
       shift # past value
       ;;
-    -h|--help)
+    -h | --help)
       show_help
       exit 0
       ;;
@@ -40,11 +45,6 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
-
-# Source .env file if it exists (maintains existing functionality)
-if [ -f .env ]; then
-  source .env
-fi
 
 # Export ENVIRONMENT variable
 export ENVIRONMENT
