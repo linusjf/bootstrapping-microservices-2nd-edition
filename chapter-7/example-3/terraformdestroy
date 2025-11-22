@@ -1,5 +1,27 @@
 #!/usr/bin/env bash
-source .env
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --environment)
+      ENVIRONMENT="$2"
+      shift # past argument
+      shift # past value
+      ;;
+    *)
+      shift # past argument
+      ;;
+  esac
+done
+
+# Source .env file if it exists (maintains existing functionality)
+if [ -f .env ]; then
+  source .env
+fi
+
+# Export ENVIRONMENT variable
+export ENVIRONMENT
+
 terraform destroy -auto-approve \
   -var "app_version=$VERSION" \
   -var "client_id=$ARM_CLIENT_ID" \
