@@ -10,6 +10,7 @@ resource "azurerm_kubernetes_cluster" "cluster" {
 
     default_node_pool {
         name = "default"
+        auto_scaling_enabled = true
         min_count = 3
         max_count = 20
         node_count = var.node_count
