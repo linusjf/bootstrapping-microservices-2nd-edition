@@ -27,7 +27,7 @@
     "globby": "^9.1.0",
     "mongodb": "^6.0.0",
     "node-mongodb-fixtures": "^3.2.9",
-    "nodemon": "^2.0.21"
+    "nodemon": "^3.1.11"
   },
   "private": true
 }
